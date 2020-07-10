@@ -8,14 +8,11 @@
 export default {
   name: "Home",
   methods: {
-    register() {
-      let currentUser = JSON.parse(localStorage.getItem("user"));
-      if (currentUser) {
-        this.$router.push("/about");
+    async register() {
+      if (JSON.parse(localStorage.getItem("user"))) {
+        this.$router.push("/form");
       } else {
-        this.$store.dispatch("loginWithGoogle").then(() => {
-          this.$router.push("/about");
-        });
+        this.$store.dispatch("loginWithGoogle");
       }
     }
   }

@@ -21,8 +21,8 @@ const config = {
 firebase.initializeApp(config);
 
 export const db = firebase.firestore();
-export var storageRef = firebase.storage().ref();
-export var provider = new firebase.auth.GoogleAuthProvider();
+export const storageRef = firebase.storage().ref();
+export const auth = firebase.auth();
 
 new Vue({
   router,
