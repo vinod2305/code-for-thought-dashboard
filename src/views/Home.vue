@@ -1,18 +1,23 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="my-2">
+    <v-btn small @click="register">Register</v-btn>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "Home",
+  methods: {
+    register() {
+      let currentUser = JSON.parse(localStorage.getItem("user"));
+      if (currentUser) {
+        this.$router.push("/about");
+      } else {
+        this.$store.dispatch("loginWithGoogle").then(() => {
+          this.$router.push("/about");
+        });
+      }
+    }
   }
-}
+};
 </script>
