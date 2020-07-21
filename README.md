@@ -1,4 +1,4 @@
-# coding-site
+# Code-for-thought Website
 
 ## Project setup
 ```
